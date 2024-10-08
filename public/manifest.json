@@ -1,0 +1,30 @@
+{
+    "manifest_version": 3,
+    "name": "LinkedIn AI Reply Generator",
+    "version": "1.0",
+    "description": "A Chrome extension to generate LinkedIn replies.",
+    "permissions": [
+      "activeTab",
+      "scripting",
+      "storage",
+      "runtime"
+    ],
+    "background": {
+      "service_worker": "entrypoints/background.ts"
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://www.linkedin.com/*"],
+        "js": ["entrypoints/content.js"]
+      }
+    ],
+    "action": {
+      "default_popup": "entrypoints/popup/index.html"
+    },
+    "icons": {
+      "16": "public/icon-16.png",
+      "48": "public/icon-48.png",
+      "128": "public/icon-128.png"
+    }
+  }
+  
